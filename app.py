@@ -32,11 +32,15 @@ def welcome():
 
     
     elif currentUser != userCode:  
-        return render_template('error.html', errorMsg = "Username is wrong!")
+        flash("Invalid username")
+        return redirect(url_for('root'))
+        # return render_template('error.html', errorMsg = "Username is wrong!")
 
     
     else:
-        return render_template('error.html' , errorMsg = "Password is wrong!")
+        flash("Wrong password")
+        return redirect(url_for('root'))
+        #return render_template('error.html' , errorMsg = "Password is wrong!")
 
 @app.route('/logOut' , methods = ['POST', 'GET'])
 
