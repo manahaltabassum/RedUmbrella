@@ -5,8 +5,10 @@
 	</head>
 	
 	<body>
-		{% block errorMsg %} {% endblock %}
-		{% block logOutMsg %} {% endblock %}
+		{% set messages = get_flashed_messages() %}
+			{% for message in messages %}
+				<h3>{{message}}</h3>
+			{% endfor %}
 		<form method = "POST" action = "/welcome">
 			Username: 
 			<input type = "text" name = "username">
