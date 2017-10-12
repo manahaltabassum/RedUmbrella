@@ -45,6 +45,7 @@ def welcome():
 @app.route('/logOut' , methods = ['POST', 'GET'])
 
 def logOut():
+    flash("You've been logged out!")
     session.pop('user')
     #return render_template('logOut.html')
     return redirect(url_for('root'))
